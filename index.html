@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Sandro Raitano | Virtual CV</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            purple: '#9b59b6', // Mauve accent
+                            dark: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Flowbite -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
+
+    <!-- Navigation (Simple) -->
+    <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 bg-white/80 backdrop-blur-md">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-bold whitespace-nowrap tracking-tighter">SR.</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <a href="mailto:sandro@octyvibe.be"
+                    class="text-white bg-brand-purple hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div
+            class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-200 via-white to-white">
+        </div>
+
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1
+                class="hero-title text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-4 opacity-0 translate-y-10">
+                SANDRO<br><span class="text-brand-purple">RAITANO</span>
+            </h1>
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-600 font-light mb-8 opacity-0 translate-y-10">
+                Webdesigner WordPress | Communication & Marketing | Creative Technologist
+            </p>
+
+            <div
+                class="hero-contact flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base text-gray-500 opacity-0 translate-y-10">
+                <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg> Fleurus, Belgique</span>
+                <a href="tel:0494047881" class="flex items-center gap-2 hover:text-brand-purple transition-colors"><svg
+                        class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                        </path>
+                    </svg> 0494 04 78 81</a>
+                <a href="https://www.octyvibe.be" target="_blank"
+                    class="flex items-center gap-2 hover:text-brand-purple transition-colors"><svg class="w-4 h-4"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                        </path>
+                    </svg> www.octyvibe.be</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="section-title text-3xl md:text-5xl font-bold mb-12 text-center opacity-0">Profil Professionnel
+            </h2>
+            <div class="prose prose-lg mx-auto text-gray-600 text-center leading-relaxed opacity-0 profile-text">
+                <p>
+                    Webdesigner et créatif passionné, je combine une expertise technique en prépresse avec une maîtrise
+                    avancée du digital et du marketing.
+                    <span class="text-brand-purple font-semibold">Autodidacte et innovant</span>, j'intègre désormais
+                    l'Intelligence Artificielle ("Vibe Coding") pour concevoir des solutions web uniques et
+                    performantes.
+                    Mon approche hybride garantit une cohérence totale entre l'identité visuelle imprimée et la présence
+                    numérique.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Expériences</h2>
+
+            <div class="relative border-s border-gray-200 dark:border-gray-700 ml-4 md:ml-0">
+                <!-- Item 1 -->
+                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-brand-purple rounded-full -start-3 ring-8 ring-white">
+                        <svg class="w-2.5 h-2.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                    </span>
+                    <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Webdesigner WordPress,
+                        Communication & Marketing <span
+                            class="bg-purple-100 text-brand-purple text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">Actuel</span>
+                    </h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juin 2022 – Aujourd’hui |
+                        MCP (Management Consultance Partenaire)</time>
+                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
+                        <li>Gestion globale de la communication visuelle et digitale.</li>
+                        <li>Développement et maintenance du site web (WordPress).</li>
+                        <li>Création de supports marketing efficaces.</li>
+                        <li>Optimisation SEO et expérience utilisateur (UX).</li>
+                    </ul>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
+                        <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-lg font-semibold text-gray-900">Fondateur & Creative Director (Freelance)</h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juillet 2015 – Aujourd’hui |
+                        OctyVIBE</time>
+                    <p class="text-base font-normal text-gray-500 mb-2">Studio de design graphique, branding et
+                        solutions web assistées par IA.</p>
+                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
+                        <li>Vibe Coding : Développement rapide d'outils web et extensions WordPress.</li>
+                        <li>Branding : Création d'identités visuelles marquantes.</li>
+                        <li>Formation : Accompagnement client.</li>
+                    </ul>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                    <span
+                        class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
+                        <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-lg font-semibold text-gray-900">Graphic Web Designer</h3>
+                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juillet 2020 – Juin 2022 |
+                        BUREAU GRAPHIQUE HCLO3</time>
+                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
+                        <li>Conception graphique print et web.</li>
+                        <li>Mise en page complexe et retouche photo avancée.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Compétences Clés</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Web & Tech -->
+                <div class="skill-category opacity-0 translate-y-10">
+                    <h3 class="text-2xl font-bold mb-6 text-brand-purple">Web & Tech</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">WordPress (Expert)</span>
+                                <span class="text-sm font-medium text-white">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">HTML / CSS / Bootstrap</span>
+                                <span class="text-sm font-medium text-white">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">Vibe Coding (IA Assisted)</span>
+                                <span class="text-sm font-medium text-white">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphisme -->
+                <div class="skill-category opacity-0 translate-y-10">
+                    <h3 class="text-2xl font-bold mb-6 text-brand-purple">Graphisme & Branding</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">Adobe Suite (Ps, Ai, Id)</span>
+                                <span class="text-sm font-medium text-white">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">Identité Visuelle</span>
+                                <span class="text-sm font-medium text-white">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-white">Print / Prépresse</span>
+                                <span class="text-sm font-medium text-white">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Languages Section -->
+    <section id="education-languages" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                <!-- Education -->
+                <div>
+                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-10 text-center md:text-left opacity-0">
+                        Formation</h2>
+                    <div class="relative border-s border-gray-200 dark:border-gray-700 ml-4">
+                        <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                            <span
+                                class="absolute flex items-center justify-center w-6 h-6 bg-brand-purple rounded-full -start-3 ring-8 ring-white">
+                                <svg class="w-2.5 h-2.5 text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </span>
+                            <h3 class="mb-1 text-lg font-semibold text-gray-900">Bachelier en Techniques Infographiques
+                                (PAO)</h3>
+                            <time class="block mb-2 text-sm font-normal leading-none text-gray-400">2007 – 2011 | Haute
+                                École Albert Jacquard</time>
+                        </div>
+                        <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                            <span
+                                class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
+                                <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                </svg>
+                            </span>
+                            <h3 class="mb-1 text-lg font-semibold text-gray-900">Formation Webdesign</h3>
+                            <time class="block mb-2 text-sm font-normal leading-none text-gray-400">2014 | Autodidacte
+                                (Tuto.com, etc.)</time>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-10 text-center md:text-left opacity-0">
+                        Langues</h2>
+                    <div class="space-y-6">
+                        <div class="experience-item opacity-0 translate-x-10">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-900">Français</span>
+                                <span class="text-sm font-medium text-gray-500">Langue maternelle / Bilingue</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="100%"></div>
+                            </div>
+                        </div>
+                        <div class="experience-item opacity-0 translate-x-10">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-900">Anglais</span>
+                                <span class="text-sm font-medium text-gray-500">Compétence professionnelle</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Projets Récents</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer experience-item opacity-0 translate-y-10">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <!-- Placeholder Image -->
+                    <div class="w-full h-64 bg-gray-300 flex items-center justify-center text-gray-500">
+                        <span class="text-4xl">QrVIBE</span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-6 z-20 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-2">QrVIBE</h3>
+                        <p
+                            class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Générateur de QR codes (URL/Wifi) gratuit et rapide.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer experience-item opacity-0 translate-y-10">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <!-- Placeholder Image -->
+                    <div class="w-full h-64 bg-gray-300 flex items-center justify-center text-gray-500">
+                        <span class="text-4xl">GradientVIBE</span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 p-6 z-20 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-2">GradientVIBE</h3>
+                        <p
+                            class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Outil de création de dégradés organiques haute définition.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://www.octyvibe.be" target="_blank"
+                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-brand-purple rounded-lg hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105">
+                    Plus de réalisations sur OctyVIBE.be
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white rounded-lg shadow m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="https://octyvibe.be/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap">OctyVIBE</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="mailto:sandro@octyvibe.be" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center">© 2025 <a href="https://octyvibe.be/"
+                    class="hover:underline">Sandro Raitano™</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
