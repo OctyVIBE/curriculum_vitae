@@ -10,7 +10,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +24,7 @@
                     },
                     colors: {
                         brand: {
-                            purple: '#9b59b6', // Mauve accent
+                            purple: '#9b59b6',
                             dark: '#1a1a1a',
                         }
                     }
@@ -39,70 +40,177 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
+<body class="bg-gray-200 min-h-screen py-8 md:py-12 flex justify-center items-start font-sans antialiased">
 
-    <!-- Navigation (Simple) -->
-    <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 bg-white/80 backdrop-blur-md">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-bold whitespace-nowrap tracking-tighter">SR.</span>
-            </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <a href="mailto:sandro@octyvibe.be"
-                    class="text-white bg-brand-purple hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all duration-300">Contact</a>
+    <!-- Paper Container -->
+    <div
+        class="cv-container bg-white w-full max-w-5xl shadow-2xl rounded-sm overflow-hidden flex flex-col md:flex-row min-h-[1100px] relative">
+
+        <!-- Sidebar (Left) -->
+        <aside class="w-full md:w-[35%] bg-[#1a1a1a] text-white relative flex flex-col figma-selection"
+            data-label="Sidebar">
+            <!-- Texture Overlay -->
+            <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center"
+                style="background-image: url('assets/img/gradient-texture-1.webp'); mix-blend-mode: overlay;"></div>
+
+            <div class="relative z-10 p-8 flex flex-col h-full">
+                <!-- Profile Photo -->
+                <div class="mb-8 text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full border-4 border-white/20 overflow-hidden shadow-lg mb-6">
+                        <img src="assets/img/sandro_raitano.jpeg" alt="Sandro Raitano"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h1 class="text-3xl font-bold tracking-tight mb-2">SANDRO<br><span
+                            class="text-brand-purple">RAITANO</span></h1>
+                    <p class="text-sm text-gray-300 font-light uppercase tracking-widest">Webdesigner & Creative
+                        Technologist</p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="mb-10 space-y-4 text-sm text-gray-300">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-purple shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <span>Place Charles Gailly, 1/3<br>6220 Fleurus, Belgique</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-purple shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <a href="mailto:sandro@octyvibe.be"
+                            class="hover:text-white transition-colors">sandro@octyvibe.be</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-purple shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                        </div>
+                        <a href="tel:0494047881" class="hover:text-white transition-colors">0494 04 78 81</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-purple shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                        </div>
+                        <a href="https://www.octyvibe.be" target="_blank"
+                            class="hover:text-white transition-colors">www.octyvibe.be</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-brand-purple shrink-0">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </div>
+                        <a href="https://linkedin.com/in/sandroraitano" target="_blank"
+                            class="hover:text-white transition-colors">linkedin.com/in/sandroraitano</a>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="mb-10">
+                    <h3 class="text-white font-bold uppercase tracking-wider mb-6 border-b border-white/20 pb-2">
+                        Compétences</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 text-gray-300">
+                                <span>WordPress (Expert)</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 text-gray-300">
+                                <span>Adobe Suite</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 text-gray-300">
+                                <span>HTML / CSS</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 text-gray-300">
+                                <span>Vibe Coding (IA)</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1 text-gray-300">
+                                <span>Print / Prépresse</span>
+                            </div>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
+                                    data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <h3 class="text-white font-bold uppercase tracking-wider mb-6 border-b border-white/20 pb-2">Langues
+                    </h3>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <div class="flex justify-between">
+                            <span>Français</span>
+                            <span class="text-brand-purple">Bilingue</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Anglais</span>
+                            <span class="text-brand-purple">Professionnel</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </aside>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-        <div
-            class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-200 via-white to-white">
-        </div>
+        <!-- Main Content (Right) -->
+        <main class="w-full md:w-[65%] bg-white p-8 md:p-12">
 
-        <div class="container mx-auto px-4 z-10 text-center">
-            <h1
-                class="hero-title text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-4 opacity-0 translate-y-10">
-                SANDRO<br><span class="text-brand-purple">RAITANO</span>
-            </h1>
-            <p class="hero-subtitle text-xl md:text-2xl text-gray-600 font-light mb-8 opacity-0 translate-y-10">
-                Webdesigner WordPress | Communication & Marketing | Creative Technologist
-            </p>
-
-            <div
-                class="hero-contact flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base text-gray-500 opacity-0 translate-y-10">
-                <span class="flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg> Fleurus, Belgique</span>
-                <a href="tel:0494047881" class="flex items-center gap-2 hover:text-brand-purple transition-colors"><svg
-                        class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                        </path>
-                    </svg> 0494 04 78 81</a>
-                <a href="https://www.octyvibe.be" target="_blank"
-                    class="flex items-center gap-2 hover:text-brand-purple transition-colors"><svg class="w-4 h-4"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                        </path>
-                    </svg> www.octyvibe.be</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Profile Section -->
-    <section id="profile" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="section-title text-3xl md:text-5xl font-bold mb-12 text-center opacity-0">Profil Professionnel
-            </h2>
-            <div class="prose prose-lg mx-auto text-gray-600 text-center leading-relaxed opacity-0 profile-text">
-                <p>
+            <!-- Profile Summary -->
+            <section id="profile" class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+                    Profil Professionnel
+                </h2>
+                <p class="text-gray-600 leading-relaxed text-justify profile-text">
                     Webdesigner et créatif passionné, je combine une expertise technique en prépresse avec une maîtrise
                     avancée du digital et du marketing.
                     <span class="text-brand-purple font-semibold">Autodidacte et innovant</span>, j'intègre désormais
@@ -111,322 +219,461 @@
                     Mon approche hybride garantit une cohérence totale entre l'identité visuelle imprimée et la présence
                     numérique.
                 </p>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Expériences</h2>
+            <!-- Experience -->
+            <section id="experience" class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+                    Expériences
+                </h2>
 
-            <div class="relative border-s border-gray-200 dark:border-gray-700 ml-4 md:ml-0">
-                <!-- Item 1 -->
-                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-brand-purple rounded-full -start-3 ring-8 ring-white">
-                        <svg class="w-2.5 h-2.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                    </span>
-                    <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">Webdesigner WordPress,
-                        Communication & Marketing <span
-                            class="bg-purple-100 text-brand-purple text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-3">Actuel</span>
-                    </h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juin 2022 – Aujourd’hui |
-                        MCP (Management Consultance Partenaire)</time>
-                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
-                        <li>Gestion globale de la communication visuelle et digitale.</li>
-                        <li>Développement et maintenance du site web (WordPress).</li>
-                        <li>Création de supports marketing efficaces.</li>
-                        <li>Optimisation SEO et expérience utilisateur (UX).</li>
-                    </ul>
-                </div>
+                <div class="relative border-s border-gray-200 ml-3 space-y-10">
+                    <!-- Item 1 -->
+                    <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
+                        data-label="You">
+                        <span
+                            class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6"></span>
+                        <h3 class="flex items-center mb-1 text-lg font-bold text-gray-900">Webdesigner WordPress &
+                            Marketing</h3>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juin 2022 – Aujourd’hui |
+                            MCP</span>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0"></span>
+                                <span>Gestion globale de la communication visuelle et digitale.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0"></span>
+                                <span>Développement et maintenance du site web (WordPress).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0"></span>
+                                <span>Création de supports marketing efficaces.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0"></span>
+                                <span>Optimisation SEO et expérience utilisateur (UX).</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                <!-- Item 2 -->
-                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
-                        <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-lg font-semibold text-gray-900">Fondateur & Creative Director (Freelance)</h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juillet 2015 – Aujourd’hui |
-                        OctyVIBE</time>
-                    <p class="text-base font-normal text-gray-500 mb-2">Studio de design graphique, branding et
-                        solutions web assistées par IA.</p>
-                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
-                        <li>Vibe Coding : Développement rapide d'outils web et extensions WordPress.</li>
-                        <li>Branding : Création d'identités visuelles marquantes.</li>
-                        <li>Formation : Accompagnement client.</li>
-                    </ul>
-                </div>
+                    <!-- Item 2 -->
+                    <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
+                        data-label="Experience">
+                        <span
+                            class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6"></span>
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Fondateur & Creative Director</h3>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2015 – Aujourd’hui |
+                            OctyVIBE</span>
+                        <p class="text-sm text-gray-600 mb-2 italic">Studio de design graphique, branding et solutions
+                            web assistées par IA.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Vibe Coding : Développement d'outils web et extensions WP.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Branding : Création d'identités visuelles marquantes.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Formation : Accompagnement client.</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                <!-- Item 3 -->
-                <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
-                    <span
-                        class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
-                        <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-lg font-semibold text-gray-900">Graphic Web Designer</h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-400">Juillet 2020 – Juin 2022 |
-                        BUREAU GRAPHIQUE HCLO3</time>
-                    <ul class="mb-4 text-base font-normal text-gray-500 list-disc list-inside">
-                        <li>Conception graphique print et web.</li>
-                        <li>Mise en page complexe et retouche photo avancée.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Compétences Clés</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Web & Tech -->
-                <div class="skill-category opacity-0 translate-y-10">
-                    <h3 class="text-2xl font-bold mb-6 text-brand-purple">Web & Tech</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">WordPress (Expert)</span>
-                                <span class="text-sm font-medium text-white">95%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">HTML / CSS / Bootstrap</span>
-                                <span class="text-sm font-medium text-white">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">Vibe Coding (IA Assisted)</span>
-                                <span class="text-sm font-medium text-white">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="85%"></div>
-                            </div>
-                        </div>
+                    <!-- Item 3 -->
+                    <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
+                        data-label="Experience">
+                        <span
+                            class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6"></span>
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Graphic Web Designer</h3>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2020 – Juin 2022 | BUREAU
+                            GRAPHIQUE HCLO3</span>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Conception graphique print et web.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Mise en page complexe et retouche photo avancée.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
-                <!-- Graphisme -->
-                <div class="skill-category opacity-0 translate-y-10">
-                    <h3 class="text-2xl font-bold mb-6 text-brand-purple">Graphisme & Branding</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">Adobe Suite (Ps, Ai, Id)</span>
-                                <span class="text-sm font-medium text-white">95%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">Identité Visuelle</span>
-                                <span class="text-sm font-medium text-white">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-white">Print / Prépresse</span>
-                                <span class="text-sm font-medium text-white">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="90%"></div>
-                            </div>
-                        </div>
+            <!-- Tools Section (Figma Style) -->
+            <section id="tools" class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+                    Boîte à Outils
+                </h2>
+                <div class="grid grid-cols-4 md:grid-cols-6 gap-4">
+                    <!-- Tool Items -->
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Photoshop">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ps</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Illustrator">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ai</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="InDesign">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Id</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="After Effects">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ae</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Filmora">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Filmora</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Notion">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Notion</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="VS Code">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">VS Code</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Antigravity">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">AntiG</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Gemini">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Gemini</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Stable Diffusion">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">SD</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="Midjourney">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">MJ</span>
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                        data-label="WordPress">
+                        <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">WP</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Education & Languages Section -->
-    <section id="education-languages" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-                <!-- Education -->
-                <div>
-                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-10 text-center md:text-left opacity-0">
-                        Formation</h2>
-                    <div class="relative border-s border-gray-200 dark:border-gray-700 ml-4">
-                        <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+            <!-- Portfolio -->
+            <section id="portfolio">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+                    Portfolio
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <a href="https://octyvibe.be/qrvibe/" target="_blank"
+                        class="group relative overflow-hidden rounded-xl shadow-md cursor-pointer experience-item block h-48 figma-selection isolation-isolate"
+                        data-label="You">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            style="background-image: url('assets/img/gradient-texture-2.webp');"></div>
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center z-10">
+                            <h3 class="text-xl font-bold mb-1">QrVIBE</h3>
+                            <p class="text-xs opacity-80">Générateur de QR codes</p>
                             <span
-                                class="absolute flex items-center justify-center w-6 h-6 bg-brand-purple rounded-full -start-3 ring-8 ring-white">
-                                <svg class="w-2.5 h-2.5 text-white" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                </svg>
-                            </span>
-                            <h3 class="mb-1 text-lg font-semibold text-gray-900">Bachelier en Techniques Infographiques
-                                (PAO)</h3>
-                            <time class="block mb-2 text-sm font-normal leading-none text-gray-400">2007 – 2011 | Haute
-                                École Albert Jacquard</time>
+                                class="mt-4 px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Voir
+                                le projet</span>
                         </div>
-                        <div class="mb-10 ms-6 experience-item opacity-0 translate-x-10">
+                    </a>
+
+                    <!-- Project 2 -->
+                    <a href="https://octyvibe.be/gradientvibe/" target="_blank"
+                        class="group relative overflow-hidden rounded-xl shadow-md cursor-pointer experience-item block h-48 figma-selection isolation-isolate"
+                        data-label="You">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                            style="background-image: url('assets/img/gradient-texture-2.webp'); filter: hue-rotate(45deg);">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center z-10">
+                            <h3 class="text-xl font-bold mb-1">GradientVIBE</h3>
+                            <p class="text-xs opacity-80">Création de dégradés</p>
                             <span
-                                class="absolute flex items-center justify-center w-6 h-6 bg-gray-200 rounded-full -start-3 ring-8 ring-white">
-                                <svg class="w-2.5 h-2.5 text-gray-600" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                </svg>
-                            </span>
-                            <h3 class="mb-1 text-lg font-semibold text-gray-900">Formation Webdesign</h3>
-                            <time class="block mb-2 text-sm font-normal leading-none text-gray-400">2014 | Autodidacte
-                                (Tuto.com, etc.)</time>
+                                class="mt-4 px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Voir
+                                le projet</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
+            </section>
 
-                <!-- Languages -->
-                <div>
-                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-10 text-center md:text-left opacity-0">
-                        Langues</h2>
-                    <div class="space-y-6">
-                        <div class="experience-item opacity-0 translate-x-10">
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-gray-900">Français</span>
-                                <span class="text-sm font-medium text-gray-500">Langue maternelle / Bilingue</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="100%"></div>
-                            </div>
-                        </div>
-                        <div class="experience-item opacity-0 translate-x-10">
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-gray-900">Anglais</span>
-                                <span class="text-sm font-medium text-gray-500">Compétence professionnelle</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                <div class="bg-brand-purple h-2.5 rounded-full skill-bar" style="width: 0%"
-                                    data-width="75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </main>
+    </div>
 
+    <!-- Figma Toolbar -->
+    <div
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-[#2c2c2c] text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-6 z-50 border border-gray-700">
+        <div class="flex items-center gap-4 border-r border-gray-600 pr-4">
+            <!-- Move Tool -->
+            <div id="toolbar-move" class="p-1 rounded bg-white/10 cursor-pointer transition-colors text-brand-purple"
+                title="Déplacer (V)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
+                    </path>
+                </svg>
+            </div>
+            <!-- Hand Tool -->
+            <div id="toolbar-hand" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Naviguer (H)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 border-r border-gray-600 pr-4">
+            <!-- Share Tool -->
+            <div id="toolbar-share" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Partager par Email">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                    </path>
+                </svg>
+            </div>
+            <!-- PDF Tool -->
+            <div id="toolbar-pdf" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Télécharger en PDF">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="text-xs font-medium text-gray-400 hidden md:block">OctyVIBE CV <span
+                class="text-gray-600 mx-1">/</span> Sandro
+            Raitano</div>
+        <li class="flex items-start gap-2">
+            <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+            <span>Vibe Coding : Développement d'outils web et extensions WP.</span>
+        </li>
+        <li class="flex items-start gap-2">
+            <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+            <span>Branding : Création d'identités visuelles marquantes.</span>
+        </li>
+        <li class="flex items-start gap-2">
+            <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+            <span>Formation : Accompagnement client.</span>
+        </li>
+        </ul>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
+        data-label="Experience">
+        <span
+            class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6"></span>
+        <h3 class="mb-1 text-lg font-bold text-gray-900">Graphic Web Designer</h3>
+        <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2020 – Juin 2022 | BUREAU
+            GRAPHIQUE HCLO3</span>
+        <ul class="text-sm text-gray-600 space-y-1">
+            <li class="flex items-start gap-2">
+                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                <span>Conception graphique print et web.</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                <span>Mise en page complexe et retouche photo avancée.</span>
+            </li>
+        </ul>
+    </div>
+    </div>
+    </section>
+
+    <!-- Tools Section (Figma Style) -->
+    <section id="tools" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+            Boîte à Outils
+        </h2>
+        <div class="grid grid-cols-4 md:grid-cols-6 gap-4">
+            <!-- Tool Items -->
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Photoshop">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ps</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Illustrator">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ai</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="InDesign">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Id</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="After Effects">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Ae</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Filmora">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Filmora</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Notion">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Notion</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="VS Code">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">VS Code</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Antigravity">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">AntiG</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Gemini">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">Gemini</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Stable Diffusion">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">SD</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="Midjourney">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">MJ</span>
+            </div>
+            <div class="aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4 hover:scale-110 transition-transform cursor-pointer figma-selection group"
+                data-label="WordPress">
+                <span class="text-xs text-gray-400 font-bold group-hover:text-brand-purple">WP</span>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20">
-        <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="section-title text-3xl md:text-5xl font-bold mb-16 text-center opacity-0">Projets Récents</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div
-                    class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer experience-item opacity-0 translate-y-10">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <!-- Placeholder Image -->
-                    <div class="w-full h-64 bg-gray-300 flex items-center justify-center text-gray-500">
-                        <span class="text-4xl">QrVIBE</span>
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 p-6 z-20 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="text-2xl font-bold mb-2">QrVIBE</h3>
-                        <p
-                            class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Générateur de QR codes (URL/Wifi) gratuit et rapide.</p>
-                    </div>
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+            <span class="w-2 h-8 bg-brand-purple rounded-sm"></span>
+            Portfolio
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <a href="https://octyvibe.be/qrvibe/" target="_blank"
+                class="group relative overflow-hidden rounded-xl shadow-md cursor-pointer experience-item block h-48 figma-selection isolation-isolate"
+                data-label="You">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style="background-image: url('assets/img/gradient-texture-2.webp');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
                 </div>
-
-                <!-- Project 2 -->
-                <div
-                    class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer experience-item opacity-0 translate-y-10">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                    <!-- Placeholder Image -->
-                    <div class="w-full h-64 bg-gray-300 flex items-center justify-center text-gray-500">
-                        <span class="text-4xl">GradientVIBE</span>
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 p-6 z-20 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="text-2xl font-bold mb-2">GradientVIBE</h3>
-                        <p
-                            class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                            Outil de création de dégradés organiques haute définition.</p>
-                    </div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center z-10">
+                    <h3 class="text-xl font-bold mb-1">QrVIBE</h3>
+                    <p class="text-xs opacity-80">Générateur de QR codes</p>
+                    <span
+                        class="mt-4 px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Voir
+                        le projet</span>
                 </div>
-            </div>
+            </a>
 
-            <div class="text-center mt-12">
-                <a href="https://www.octyvibe.be" target="_blank"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-brand-purple rounded-lg hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 transition-all duration-300 transform hover:scale-105">
-                    Plus de réalisations sur OctyVIBE.be
-                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                </a>
-            </div>
+            <!-- Project 2 -->
+            <a href="https://octyvibe.be/gradientvibe/" target="_blank"
+                class="group relative overflow-hidden rounded-xl shadow-md cursor-pointer experience-item block h-48 figma-selection isolation-isolate"
+                data-label="You">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style="background-image: url('assets/img/gradient-texture-2.webp'); filter: hue-rotate(45deg);">
+                </div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300">
+                </div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center z-10">
+                    <h3 class="text-xl font-bold mb-1">GradientVIBE</h3>
+                    <p class="text-xs opacity-80">Création de dégradés</p>
+                    <span
+                        class="mt-4 px-4 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Voir
+                        le projet</span>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-white rounded-lg shadow m-4">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <a href="https://octyvibe.be/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap">OctyVIBE</span>
-                </a>
-                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="mailto:sandro@octyvibe.be" class="hover:underline">Contact</a>
-                    </li>
-                </ul>
+    </main>
+    </div>
+
+    <!-- Figma Toolbar -->
+    <div
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-[#2c2c2c] text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-6 z-50 border border-gray-700">
+        <div class="flex items-center gap-4 border-r border-gray-600 pr-4">
+            <!-- Move Tool -->
+            <div id="toolbar-move" class="p-1 rounded bg-white/10 cursor-pointer transition-colors text-brand-purple"
+                title="Déplacer (V)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
+                    </path>
+                </svg>
             </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-            <span class="block text-sm text-gray-500 sm:text-center">© 2025 <a href="https://octyvibe.be/"
-                    class="hover:underline">Sandro Raitano™</a>. All Rights Reserved.</span>
+            <!-- Hand Tool -->
+            <div id="toolbar-hand" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Naviguer (H)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11">
+                    </path>
+                </svg>
+            </div>
         </div>
-    </footer>
+
+        <div class="flex items-center gap-4 border-r border-gray-600 pr-4">
+            <!-- Share Tool -->
+            <div id="toolbar-share" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Partager par Email">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                    </path>
+                </svg>
+            </div>
+            <!-- PDF Tool -->
+            <div id="toolbar-pdf" class="p-1 rounded hover:bg-white/10 cursor-pointer transition-colors text-gray-400"
+                title="Télécharger en PDF">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="text-xs font-medium text-gray-400 hidden md:block">OctyVIBE CV <span
+                class="text-gray-600 mx-1">/</span> Sandro
+            Raitano</div>
+        <div class="flex items-center gap-4 border-l border-gray-600 pl-4">
+            <!-- Restart Button -->
+            <button id="restart-btn"
+                class="text-xs bg-brand-purple hover:bg-purple-600 transition-colors px-3 py-1.5 rounded text-white flex items-center gap-2 font-bold shadow-lg hover:shadow-purple-500/50"
+                title="Tout remettre en ordre">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                    </path>
+                </svg>
+                <span>RESET</span>
+            </button>
+        </div>
+    </div>
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

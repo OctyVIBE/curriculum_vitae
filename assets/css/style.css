@@ -4,6 +4,10 @@ body {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #e5e7eb;
+    /* Gray-200 */
+    cursor: default;
+    /* Default cursor */
 }
 
 /* Custom Scrollbar */
@@ -24,16 +28,58 @@ body {
     background: #a0a0a0;
 }
 
-/* Glassmorphism utilities if needed */
-.glass {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+/* Paper Container specific styles */
+.cv-container {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* transform-style: preserve-3d; REMOVED to fix Draggable offset */
+    /* perspective: 1000px; */
 }
 
 /* Text Selection Color */
 ::selection {
     background: #9b59b6;
     color: white;
+}
+
+/* Figma Selection Effect */
+.figma-selection {
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.figma-selection:hover {
+    border-color: #9b59b6;
+}
+
+.figma-selection::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -24px;
+    left: -2px;
+    background-color: #9b59b6;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 2px 2px 2px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+    white-space: nowrap;
+}
+
+.figma-selection:hover::after {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cv-container {
+        flex-direction: column;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+    }
 }
