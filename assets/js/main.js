@@ -20,13 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial Entrance Animation
         entranceTimeline = gsap.timeline();
 
-        entranceTimeline
-            .from('.cv-container', {
+        const cvContainer = document.querySelector('.cv-container');
+        if (cvContainer) {
+            entranceTimeline.from(cvContainer, {
                 y: 100,
                 opacity: 0,
                 duration: 1.5,
                 ease: 'elastic.out(1, 0.75)'
             });
+        }
 
         // Skills Animation
         gsap.utils.toArray('.skill-bar').forEach(bar => {
@@ -42,27 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Main Content Reveal - SIMPLIFIED
-        // Only animate opacity and slight Y to avoid heavy transform conflicts
+        // Main Content Reveal
         const sections = gsap.utils.toArray('section');
         sections.forEach(section => {
-            const elements = []; // section.querySelectorAll('.profile-text, .experience-item, .figma-selection'); // Disabled to prevent conflict with Sortable
-
-            if (elements.length > 0) {
-                gsap.from(elements, {
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 85%',
-                        once: true // Important: Run once then release control
-                    },
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: 'power2.out',
-                    clearProps: 'all' // Clean up inline styles after animation so Draggable works freely
-                });
-            }
+            // We animate the section itself to avoid complex selector issues
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    once: true
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                clearProps: 'all'
+            });
         });
 
         // Refresh ScrollTrigger to calculate positions
@@ -158,8 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', () => {
             const commonSortableOptions = {
                 animation: 150,
-                filter: "p, h1, h2, h3, h4, h5, h6, span, li, a, input, textarea, label", // Elements to ignore for drag
-                preventOnFilter: false, // Allow default action (text selection) on filtered elements
                 ghostClass: 'bg-gray-50',
                 onStart: () => {
                     document.body.style.cursor = 'grabbing';
@@ -448,17 +443,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 // Reset Draggable positions
-                gsap.to('.figma-selection', {
-                    x: 0,
-                    y: 0,
-                    duration: 0.5,
-                    ease: 'power2.inOut',
-                    clearProps: 'transform,zIndex',
-                    onComplete: () => {
-                        // Re-initialize animations after reset is done
-                        initAnimations();
-                    }
-                });
+                const draggableElements = document.querySelectorAll('.figma-selection');
+                if (draggableElements.length > 0) {
+                    gsap.to(draggableElements, {
+                        x: 0,
+                        y: 0,
+                        duration: 0.5,
+                        ease: 'power2.inOut',
+                        clearProps: 'transform,zIndex',
+                        onComplete: () => {
+                            // Re-initialize animations after reset is done
+                            if (typeof initAnimations === 'function') {
+                                initAnimations();
+                            }
+                        }
+                    });
+                }
             });
         }
 

@@ -33,9 +33,50 @@
         }
     </script>
 
+    <!-- GSAP & Sortable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <!-- Flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Disable text selection to improve drag experience */
+        .cv-container {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        /* Restore cursor to grab for draggable items */
+        .cursor-grab,
+        .experience-item,
+        .figma-selection {
+            cursor: grab;
+        }
+
+        .cursor-grab:active,
+        .experience-item:active,
+        .figma-selection:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-200 min-h-screen py-8 md:py-12 flex justify-center items-start font-sans antialiased">
+
+    <!-- Paper Container -->
     <div
         class="cv-container bg-white w-full max-w-5xl shadow-2xl rounded-sm overflow-hidden flex flex-col md:flex-row min-h-[1100px] relative">
 
@@ -141,7 +182,8 @@
                                 </div>
                                 <div class="w-full bg-white/10 rounded-full h-1.5">
                                     <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
-                                        data-width="95%"></div>
+                                        data-width="95%">
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -150,7 +192,8 @@
                                 </div>
                                 <div class="w-full bg-white/10 rounded-full h-1.5">
                                     <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
-                                        data-width="95%"></div>
+                                        data-width="95%">
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -159,7 +202,8 @@
                                 </div>
                                 <div class="w-full bg-white/10 rounded-full h-1.5">
                                     <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
-                                        data-width="80%"></div>
+                                        data-width="80%">
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -168,7 +212,8 @@
                                 </div>
                                 <div class="w-full bg-white/10 rounded-full h-1.5">
                                     <div class="bg-brand-purple h-1.5 rounded-full skill-bar" style="width: 0%"
-                                        data-width="90%"></div>
+                                        data-width="90%">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -237,65 +282,113 @@
                 </h2>
 
                 <div id="experience-list" class="relative border-s border-gray-200 ml-3 space-y-10">
-                    <!-- Item 1 -->
+                    <!-- Item 1: MCP -->
                     <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
-                        data-label="You">
+                        data-label="Experience">
                         <span
                             class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6 pointer-events-none"></span>
-                        <h3 class="flex items-center mb-1 text-lg font-bold text-gray-900">Webdesigner WordPress &
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Webdesigner WordPress, Communication &
                             Marketing</h3>
-                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juin 2022 – Aujourd’hui |
-                            MCP</span>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juin 2022 – Aujourd’hui | MCP
+                            (Management Consultance Partenaire)</span>
+                        <p class="text-sm text-gray-600 mb-2 italic">Gestion globale de la communication visuelle et
+                            digitale.</p>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li class="flex items-start gap-2">
-                                <span class="mt-1.5 w-1.5 h-1.5 bg-brand-purple rounded-full shrink-0"></span>
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Développement et maintenance du site web (WordPress).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Création de supports marketing efficaces pour renforcer l'image de marque.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Gestion de projets de communication interne et externe.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
                                 <span>Optimisation SEO et expérience utilisateur (UX).</span>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Item 2 -->
+                    <!-- Item 2: OctyVIBE -->
                     <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
                         data-label="Experience">
                         <span
                             class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6 pointer-events-none"></span>
-                        <h3 class="mb-1 text-lg font-bold text-gray-900">Fondateur & Creative Director</h3>
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Fondateur & Creative Director (Freelance)</h3>
                         <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2015 – Aujourd’hui |
-                            OctyVIBE</span>
+                            OctyVIBE (anciennement Octodesign)</span>
                         <p class="text-sm text-gray-600 mb-2 italic">Studio de design graphique, branding et solutions
                             web assistées par IA.</p>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li class="flex items-start gap-2">
                                 <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                                <span>Développement et maintenance de sites web (WordPress).</span>
+                                <span>Vibe Coding : Développement d'outils web et extensions WP sur mesure via
+                                    IA.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                                <span>Vibe Coding : Développement d'outils web et extensions WP.</span>
+                                <span>Branding : Création d'identités visuelles marquantes (Logos, chartes
+                                    graphiques).</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                                <span>Branding : Création d'identités visuelles marquantes.</span>
+                                <span>Formation : Accompagnement client pour la gestion autonome de sites
+                                    WordPress.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                                <span>Formation : Accompagnement client.</span>
+                                <span>Conception de sites web "responsive" et captivants, orientés SEO.</span>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Item 3 -->
+                    <!-- Item 3: HCLO3 -->
                     <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
                         data-label="Experience">
                         <span
                             class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6 pointer-events-none"></span>
-                        <h3 class="mb-1 text-lg font-bold text-gray-900">Graphic Webdesigner</h3>
-                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2020 – Juin 2022 | Pulsa
-                            Studio</span>
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Graphic Web Designer</h3>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Juillet 2020 – Juin 2022 | BUREAU
+                            GRAPHIQUE HCLO3</span>
+                        <p class="text-sm text-gray-600 mb-2 italic">Conception graphique print et web pour divers
+                            clients.</p>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li class="flex items-start gap-2">
                                 <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
-                                <span>Print, textile et kit de carrosserie moto.</span>
+                                <span>Mise en page complexe et retouche photo avancée.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Création d'identités visuelles complètes.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 4: All Printing Services -->
+                    <div class="ms-8 experience-item figma-selection relative p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md"
+                        data-label="Experience">
+                        <span
+                            class="absolute flex items-center justify-center w-4 h-4 bg-brand-purple rounded-full -start-[38px] ring-4 ring-white top-6 pointer-events-none"></span>
+                        <h3 class="mb-1 text-lg font-bold text-gray-900">Opérateur Print Shop & Graphiste</h3>
+                        <span class="block mb-2 text-sm font-medium text-brand-purple">Novembre 2016 – Juin 2020 | All
+                            Printing Services</span>
+                        <p class="text-sm text-gray-600 mb-2 italic">Expertise technique en impression numérique.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Impression numérique (petit et grand format).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Gestion des flux de production et relation client.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1.5 w-1.5 h-1.5 bg-gray-400 rounded-full shrink-0"></span>
+                                <span>Conseil technique pour garantir un rendu impeccable.</span>
                             </li>
                         </ul>
                     </div>
@@ -580,6 +673,6 @@
     <script src="assets/js/Sortable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <script src="assets/js/main.js"></script>
-    </body>
+</body>
 
 </html>
