@@ -156,13 +156,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Draggable Elements
         // 1. Sortable Elements (Main Content) - Initialize on LOAD to avoid conflicts
         window.addEventListener('load', () => {
+            const commonSortableOptions = {
+                animation: 150,
+                filter: "p, h1, h2, h3, h4, h5, h6, span, li, a, input, textarea, label", // Elements to ignore for drag
+                preventOnFilter: false, // Allow default action (text selection) on filtered elements
+                ghostClass: 'bg-gray-50',
+                onStart: () => {
+                    document.body.style.cursor = 'grabbing';
+                },
+                onEnd: () => {
+                    document.body.style.cursor = 'default';
+                }
+            };
+
             // Main Sections Reordering
             const mainSections = document.getElementById('main-sections');
             if (mainSections) {
                 Sortable.create(mainSections, {
-                    animation: 150,
-                    // handle: 'h2', 
-                    ghostClass: 'bg-gray-50',
+                    ...commonSortableOptions,
                     forceFallback: true, // Force JS fallback
                     onStart: () => {
                         document.body.style.cursor = 'grabbing';
@@ -182,8 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (experienceList) {
                 try {
                     window.expSortable = Sortable.create(experienceList, {
-                        animation: 150,
-                        // Minimal config like debug list
+                        ...commonSortableOptions,
                         onStart: () => console.log('Drag started on Experience'),
                         onEnd: () => console.log('Drag ended on Experience')
                     });
@@ -197,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const toolsGrid = document.getElementById('tools-grid');
             if (toolsGrid) {
                 Sortable.create(toolsGrid, {
-                    animation: 150,
+                    ...commonSortableOptions,
                     onStart: () => console.log('Drag started on Tools'),
                     onEnd: () => console.log('Drag ended on Tools')
                 });
@@ -207,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const portfolioGrid = document.getElementById('portfolio-grid');
             if (portfolioGrid) {
                 Sortable.create(portfolioGrid, {
-                    animation: 150,
+                    ...commonSortableOptions,
                     onStart: () => console.log('Drag started on Portfolio'),
                     onEnd: () => console.log('Drag ended on Portfolio')
                 });
@@ -307,9 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
 
             if (action === 'share') {
-                modalActionText.textContent = "pour partager ce CV.";
+                modalActionText.textContent = " pour partager ce CV.";
             } else {
-                modalActionText.textContent = "pour télécharger le PDF complet (avec coordonnées).";
+                modalActionText.textContent = " pour télécharger le PDF complet (avec coordonnées).";
             }
 
             // Reset ReCaptcha if it exists
