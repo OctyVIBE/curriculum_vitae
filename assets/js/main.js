@@ -26,13 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 opacity: 0,
                 duration: 1.5,
                 ease: 'elastic.out(1, 0.75)'
-            })
-            .from('.skill-bar', {
-                width: 0,
-                duration: 1.5,
-                stagger: 0.1,
-                ease: 'power2.out'
-            }, '-=0.5');
+            });
 
         // Skills Animation
         gsap.utils.toArray('.skill-bar').forEach(bar => {
@@ -52,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Only animate opacity and slight Y to avoid heavy transform conflicts
         const sections = gsap.utils.toArray('section');
         sections.forEach(section => {
-            const elements = section.querySelectorAll('.profile-text, .experience-item, .figma-selection');
+            const elements = []; // section.querySelectorAll('.profile-text, .experience-item, .figma-selection'); // Disabled to prevent conflict with Sortable
 
             if (elements.length > 0) {
                 gsap.from(elements, {
@@ -96,14 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: 'sine.inOut'
         });
 
-        gsap.to('aside .rounded-full.bg-white\\/10', {
-            scale: 1.1,
-            duration: 1.5,
-            yoyo: true,
-            repeat: -1,
-            stagger: 0.2,
-            ease: 'sine.inOut'
-        });
+        // Sidebar Drag & Drop Sorting (Sortable.js)
+        const sidebarSectionsContainer = document.getElementById('sidebar-sections');
+        if (sidebarSectionsContainer) {
+            Sortable.create(sidebarSectionsContainer, {
+                animation: 150,
+                handle: '.sidebar-section', // Make the whole section the handle
+                ghostClass: 'bg-white/5', // Class for the drop placeholder
+                onStart: function () {
+                    document.body.style.cursor = 'grabbing';
+                },
+                onEnd: function () {
+                    document.body.style.cursor = 'default';
+                }
+            });
+        }
 
         // 3D Tilt Effect
         const cards = document.querySelectorAll('#portfolio .group');
@@ -153,21 +154,63 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- INTERACTIVE FEATURES ---
 
         // 1. Draggable Elements
-        draggableInstances = Draggable.create('.figma-selection', {
-            type: 'x,y',
-            edgeResistance: 0.65,
-            // bounds: 'body', // Removed to fix "Jump" bug
-            snap: {
-                x: function (endValue) { return Math.round(endValue / 20) * 20; },
-                y: function (endValue) { return Math.round(endValue / 20) * 20; }
-            },
-            onDragStart: function () {
-                this.target.style.zIndex = 100;
-                this.target.classList.add('cursor-grabbing');
-            },
-            onDragEnd: function () {
-                this.target.style.zIndex = '';
-                this.target.classList.remove('cursor-grabbing');
+        // 1. Sortable Elements (Main Content) - Initialize on LOAD to avoid conflicts
+        window.addEventListener('load', () => {
+            // Main Sections Reordering
+            const mainSections = document.getElementById('main-sections');
+            if (mainSections) {
+                Sortable.create(mainSections, {
+                    animation: 150,
+                    // handle: 'h2', 
+                    ghostClass: 'bg-gray-50',
+                    forceFallback: true, // Force JS fallback
+                    onStart: () => {
+                        document.body.style.cursor = 'grabbing';
+                        console.log('Drag started on mainSections');
+                        mainSections.style.border = '2px solid red'; // Visual debug
+                    },
+                    onEnd: () => {
+                        document.body.style.cursor = 'default';
+                        mainSections.style.border = '';
+                    }
+                });
+            }
+
+            // Experience Items Reordering
+            const experienceList = document.getElementById('experience-list');
+            console.log('Experience List found: ' + (!!experienceList));
+            if (experienceList) {
+                try {
+                    window.expSortable = Sortable.create(experienceList, {
+                        animation: 150,
+                        // Minimal config like debug list
+                        onStart: () => console.log('Drag started on Experience'),
+                        onEnd: () => console.log('Drag ended on Experience')
+                    });
+                    console.log('Sortable created for Experience List');
+                } catch (e) {
+                    console.log('Error creating Sortable: ' + e.message);
+                }
+            }
+
+            // Tools Grid Reordering
+            const toolsGrid = document.getElementById('tools-grid');
+            if (toolsGrid) {
+                Sortable.create(toolsGrid, {
+                    animation: 150,
+                    onStart: () => console.log('Drag started on Tools'),
+                    onEnd: () => console.log('Drag ended on Tools')
+                });
+            }
+
+            // Portfolio Grid Reordering
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            if (portfolioGrid) {
+                Sortable.create(portfolioGrid, {
+                    animation: 150,
+                    onStart: () => console.log('Drag started on Portfolio'),
+                    onEnd: () => console.log('Drag ended on Portfolio')
+                });
             }
         });
 
@@ -185,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dragOverlay.style.left = '0';
         dragOverlay.style.width = '100%';
         dragOverlay.style.height = '100%';
-        dragOverlay.style.zIndex = '9998'; // Below toolbar (z-50) but above content
+        dragOverlay.style.zIndex = '40'; // Below toolbar (z-50) but above content
         dragOverlay.style.cursor = 'grab';
         dragOverlay.style.display = 'none'; // Hidden by default
         document.body.appendChild(dragOverlay);
@@ -248,24 +291,123 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Share Button Logic
-        if (shareBtn) {
-            shareBtn.addEventListener('click', () => {
-                const email = prompt("Entrez l'adresse email du destinataire :");
-                if (email && email.includes('@')) {
-                    const subject = encodeURIComponent("CV de Sandro Raitano");
-                    const body = encodeURIComponent("Bonjour,\n\nVoici le lien vers le CV interactif de Sandro Raitano : " + window.location.href + "\n\nCordialement.");
-                    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-                } else if (email) {
-                    alert("Veuillez entrer une adresse email valide.");
-                }
-            });
+        // --- MODAL & ACTION LOGIC ---
+        const modal = document.getElementById('email-modal');
+        const modalCloseBtn = modal.querySelector('[data-modal-hide]');
+        const emailForm = document.getElementById('email-form');
+        const modalActionText = document.getElementById('modal-action-text');
+        let currentAction = null;
+
+        function openModal(action) {
+            currentAction = action;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+            if (action === 'share') {
+                modalActionText.textContent = "pour partager ce CV.";
+            } else {
+                modalActionText.textContent = "pour télécharger le PDF complet (avec coordonnées).";
+            }
+
+            // Reset ReCaptcha if it exists
+            if (window.grecaptcha) {
+                try {
+                    grecaptcha.reset();
+                } catch (e) { }
+            }
         }
 
-        // PDF Button Logic
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            emailForm.reset();
+            currentAction = null;
+        }
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeModal);
+        }
+
+        // Close on click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => openModal('share'));
+        }
+
         if (pdfBtn) {
-            pdfBtn.addEventListener('click', () => {
-                window.print();
+            pdfBtn.addEventListener('click', () => openModal('pdf'));
+        }
+
+        if (emailForm) {
+            emailForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+
+                // Get ReCaptcha Token
+                const captchaResponse = grecaptcha.getResponse();
+
+                if (!captchaResponse) {
+                    alert("Veuillez valider le Captcha.");
+                    return;
+                }
+
+                // Show loading state
+                const submitBtn = emailForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.textContent = "Traitement...";
+                submitBtn.disabled = true;
+
+                // Send to Backend
+                fetch('send_mail.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        action: currentAction,
+                        token: captchaResponse
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // EXECUTE ACTION ON SUCCESS
+                            if (currentAction === 'share') {
+                                const subject = encodeURIComponent("CV de Sandro Raitano");
+                                const body = encodeURIComponent("Bonjour,\n\nVoici le lien vers le CV interactif de Sandro Raitano : https://www.octyvibe.be/curriculum_vitae\n\nCordialement.");
+                                window.location.href = `mailto:?subject=${subject}&body=${body}`;
+                            } else if (currentAction === 'pdf') {
+                                // Trigger Download
+                                const link = document.createElement('a');
+                                link.href = 'assets/cv_sandro_raitano.pdf'; // Ensure this file exists!
+                                link.download = 'CV_Sandro_Raitano.pdf';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            }
+
+                            closeModal();
+                            alert("Merci ! Votre demande a été traitée.");
+                        } else {
+                            alert("Erreur : " + (data.message || "Une erreur est survenue."));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("Erreur de connexion au serveur.");
+                    })
+                    .finally(() => {
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
             });
         }
 
