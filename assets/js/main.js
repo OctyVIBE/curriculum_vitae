@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- MODAL & ACTION LOGIC ---
         const modal = document.getElementById('email-modal');
-        const modalCloseBtn = modal.querySelector('[data-modal-hide]');
+        const modalCloseBtn = document.getElementById('close-modal-btn'); // Changed selector to ID
         const emailForm = document.getElementById('email-form');
         const modalActionText = document.getElementById('modal-action-text');
         let currentAction = null;
@@ -302,6 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentAction = action;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            modal.setAttribute('aria-hidden', 'false'); // Fix ARIA
+            modal.setAttribute('aria-modal', 'true');   // Fix ARIA
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
 
             if (action === 'share') {
@@ -321,6 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+            modal.setAttribute('aria-hidden', 'true'); // Fix ARIA
+            modal.removeAttribute('aria-modal');       // Fix ARIA
             document.body.style.overflow = '';
             emailForm.reset();
             currentAction = null;
@@ -385,17 +389,33 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const body = encodeURIComponent("Bonjour,\n\nVoici le lien vers le CV interactif de Sandro Raitano : https://www.octyvibe.be/curriculum_vitae\n\nCordialement.");
                                 window.location.href = `mailto:?subject=${subject}&body=${body}`;
                             } else if (currentAction === 'pdf') {
-                                // Trigger Download
-                                const link = document.createElement('a');
-                                link.href = 'assets/cv_sandro_raitano.pdf'; // Ensure this file exists!
-                                link.download = 'CV_Sandro_Raitano.pdf';
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
+                                // Dynamic PDF Generation
+                                const element = document.querySelector('.cv-container');
+
+                                // Clone the element to modify it for PDF without affecting the view
+                                const clone = element.cloneNode(true);
+
+                                // Make hidden contact info visible in the clone
+                                const hiddenElements = clone.querySelectorAll('.pdf-visible');
+                                hiddenElements.forEach(el => {
+                                    el.style.display = 'flex'; // Restore display
+                                });
+
+                                // Options for html2pdf
+                                const opt = {
+                                    margin: 0,
+                                    filename: 'CV_Sandro_Raitano.pdf',
+                                    image: { type: 'jpeg', quality: 0.98 },
+                                    html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+                                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                                };
+
+                                // Generate PDF
+                                html2pdf().set(opt).from(clone).save();
                             }
 
                             closeModal();
-                            alert("Merci ! Votre demande a été traitée.");
+                            alert("Merci ! Votre demande a été traitée. Le téléchargement va démarrer.");
                         } else {
                             alert("Erreur : " + (data.message || "Une erreur est survenue."));
                         }

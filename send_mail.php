@@ -2,8 +2,7 @@
 // send_mail.php
 
 // Configuration
-// REPLACE WITH YOUR ACTUAL KEYS
-$recaptcha_secret = 'YOUR_SECRET_KEY_HERE'; 
+$recaptcha_secret = '6LeVQSMsAAAAANXuC-Yx7bHiXANE7UcECDLiNK4j';
 $recipient_email = 'sandro@octyvibe.be';
 
 // Response header
@@ -38,13 +37,13 @@ $data = [
 
 $options = [
     'http' => [
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
+        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method' => 'POST',
         'content' => http_build_query($data)
     ]
 ];
 
-$context  = stream_context_create($options);
+$context = stream_context_create($options);
 $verify_response = file_get_contents($verify_url, false, $context);
 $response_keys = json_decode($verify_response, true);
 
