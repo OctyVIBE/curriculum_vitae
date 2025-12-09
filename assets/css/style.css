@@ -74,6 +74,22 @@ body {
     opacity: 1;
 }
 
+/* Sortable Ghost Classes */
+.sortable-ghost-sidebar {
+    background-color: #374151 !important;
+    /* gray-700 */
+    opacity: 0.5;
+    border: 2px dashed #9b59b6;
+    /* Adding dashed border for better visibility */
+}
+
+.sortable-ghost-main {
+    background-color: #e5e7eb !important;
+    /* gray-200 */
+    opacity: 0.8;
+    border: 2px dashed #9b59b6;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .cv-container {
@@ -81,5 +97,168 @@ body {
         border-radius: 0;
         box-shadow: none;
         max-width: 100%;
+    }
+}
+
+/* =========================================
+   NATIVE PRINT STYLES (Window.print)
+   ========================================= */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide UI Elements */
+    #toolbar,
+    #email-modal,
+    .debug-border,
+    .resize-handle,
+    .github-corner,
+    button {
+        display: none !important;
+    }
+
+    /* Ensure CV Container fits perfectly */
+    .cv-container {
+        width: 210mm !important;
+        /* A4 width */
+        min-height: 297mm !important;
+        /* A4 height */
+        height: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow: hidden !important;
+        page-break-inside: avoid;
+    }
+
+    /* Sidebar Styling */
+    aside {
+        width: 35% !important;
+        background-color: #1a1a1a !important;
+        color: #e5e7eb !important;
+        padding: 15mm 5mm !important;
+    }
+
+    aside * {
+        color: #e5e7eb !important;
+        text-shadow: none !important;
+    }
+
+    aside h3 {
+        border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+        margin-bottom: 5mm !important;
+    }
+
+    /* Main Content Styling */
+    main {
+        width: 65% !important;
+        padding: 15mm 10mm !important;
+        background: white !important;
+        color: #1f2937 !important;
+    }
+
+    main * {
+        color: #1f2937 !important;
+    }
+
+    main h1,
+    main h2 {
+        color: #111827 !important;
+    }
+
+    /* Brand Colors */
+    .text-brand-purple,
+    aside svg,
+    .figma-selection:hover {
+        color: #9b59b6 !important;
+    }
+
+    .bg-brand-purple {
+        background-color: #9b59b6 !important;
+    }
+
+    /* Remove interactive/decorative artifacts */
+    .absolute.inset-0,
+    .absolute.z-0,
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .bg-white\/10 {
+        display: none !important;
+        backdrop-filter: none !important;
+        background: transparent !important;
+    }
+
+    /* Fix Grid Layouts */
+    #tools-grid {
+        display: grid !important;
+        grid-template-columns: repeat(8, 1fr) !important;
+        gap: 2mm !important;
+    }
+
+    .aspect-square {
+        height: auto !important;
+        aspect-ratio: 1/1 !important;
+        border: 1px solid #ddd !important;
+    }
+
+    #portfolio-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2mm !important;
+        display: none !important;
+    }
+
+    /* Contact Info Visibility */
+    .pdf-visible {
+        display: flex !important;
+        margin-bottom: 2mm !important;
+    }
+
+    /* Typography Adjustments */
+    h1 {
+        font-size: 24pt !important;
+        margin-bottom: 8pt !important;
+    }
+
+    h2 {
+        font-size: 16pt !important;
+        margin-bottom: 4pt !important;
+        font-weight: bold !important;
+    }
+
+    p,
+    li,
+    span,
+    div {
+        font-size: 10pt !important;
+        line-height: 1.3 !important;
+    }
+
+    .text-xs {
+        font-size: 8pt !important;
+    }
+
+    /* Compact Sections */
+    .mb-10,
+    .mb-12,
+    .mb-6 {
+        margin-bottom: 5mm !important;
+    }
+
+    .space-y-4>*+* {
+        margin-top: 2mm !important;
     }
 }

@@ -1,4 +1,6 @@
 // Register GSAP plugins
+console.log('%c SCRIPT LOADED - VERSION PURPLE ', 'background: #222; color: #bada55');
+// alert('Mise à jour chargée !'); // Commented out to be less intrusive but can be enabled if needed
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
 // Force scroll to top on reload to prevent layout glitches
@@ -93,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Sortable.create(sidebarSectionsContainer, {
                 animation: 150,
                 handle: '.sidebar-section', // Make the whole section the handle
-                ghostClass: 'bg-white/5', // Class for the drop placeholder
+                ghostClass: 'sortable-ghost-sidebar', // Dark grey for sidebar placeholder
                 onStart: function () {
                     document.body.style.cursor = 'grabbing';
                 },
@@ -155,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('load', () => {
             const commonSortableOptions = {
                 animation: 150,
-                ghostClass: 'bg-gray-50',
+                ghostClass: 'sortable-ghost-main',
                 onStart: () => {
                     document.body.style.cursor = 'grabbing';
                 },
@@ -173,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     onStart: () => {
                         document.body.style.cursor = 'grabbing';
                         console.log('Drag started on mainSections');
-                        mainSections.style.border = '2px solid red'; // Visual debug
+                        mainSections.style.border = '2px solid #9b59b6'; // Visual debug (purple)
                     },
                     onEnd: () => {
                         document.body.style.cursor = 'default';
@@ -394,29 +396,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const body = encodeURIComponent("Bonjour,\n\nVoici le lien vers le CV interactif de Sandro Raitano : https://www.octyvibe.be/curriculum_vitae\n\nCordialement.");
                                 window.location.href = `mailto:?subject=${subject}&body=${body}`;
                             } else if (currentAction === 'pdf') {
-                                // Dynamic PDF Generation
-                                const element = document.querySelector('.cv-container');
-
-                                // Clone the element to modify it for PDF without affecting the view
-                                const clone = element.cloneNode(true);
-
-                                // Make hidden contact info visible in the clone
-                                const hiddenElements = clone.querySelectorAll('.pdf-visible');
-                                hiddenElements.forEach(el => {
-                                    el.style.display = 'flex'; // Restore display
-                                });
-
-                                // Options for html2pdf
-                                const opt = {
-                                    margin: 0,
-                                    filename: 'CV_Sandro_Raitano.pdf',
-                                    image: { type: 'jpeg', quality: 0.98 },
-                                    html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-                                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-                                };
-
-                                // Generate PDF
-                                html2pdf().set(opt).from(clone).save();
+                                // Native Browser Print
+                                closeModal();
+                                // Small delay to ensure modal is gone
+                                setTimeout(() => {
+                                    window.print();
+                                }, 300);
                             }
 
                             closeModal();

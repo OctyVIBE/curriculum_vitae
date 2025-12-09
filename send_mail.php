@@ -2,7 +2,7 @@
 // send_mail.php
 
 // Configuration
-$recaptcha_secret = '6LeVQSMsAAAAANXuC-Yx7bHiXANE7UcECDLiNK4j';
+$recaptcha_secret = '6LfpQSYsAAAAAOTruXlOmqYa5ig3Re3Q_zH3Gtgk';
 $recipient_email = 'sandro@octyvibe.be';
 
 // Response header
@@ -35,20 +35,30 @@ $data = [
     'response' => $token
 ];
 
-$options = [
-    'http' => [
-        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method' => 'POST',
-        'content' => http_build_query($data)
-    ]
-];
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $verify_url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Uncomment if SSL issues on localhost
 
-$context = stream_context_create($options);
-$verify_response = file_get_contents($verify_url, false, $context);
+$verify_response = curl_exec($ch);
+$curl_error = curl_error($ch);
+curl_close($ch);
+
+if ($verify_response === false) {
+    error_log("cURL Error: " . $curl_error);
+    echo json_encode(['success' => false, 'message' => 'Captcha connection failed: ' . $curl_error]);
+    exit;
+}
+
 $response_keys = json_decode($verify_response, true);
 
 if (!$response_keys['success']) {
-    echo json_encode(['success' => false, 'message' => 'Captcha verification failed']);
+    // Log the error codes for debugging
+    $error_codes = isset($response_keys['error-codes']) ? implode(', ', $response_keys['error-codes']) : 'Unknown error';
+    error_log("reCAPTCHA Failed: " . $error_codes);
+    echo json_encode(['success' => false, 'message' => 'Captcha verification failed: ' . $error_codes]);
     exit;
 }
 
