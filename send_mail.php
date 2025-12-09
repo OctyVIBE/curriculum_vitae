@@ -63,14 +63,17 @@ if (!$response_keys['success']) {
 }
 
 // 2. Send Email to Sandro
-$subject = "Nouvelle action sur le CV Interactif ($action)";
-$message = "Un utilisateur a effectué une action sur votre CV.\n\n";
-$message .= "Action : " . htmlspecialchars($action) . "\n";
+$subject = "Nouvelle action sur le CV Interactif";
+$action_text = ($action === 'pdf') ? "a téléchargé le PDF" :
+    (($action === 'share') ? "a partagé le CV par email" : "a effectué une action : $action");
+
+$message = "Un utilisateur $action_text.\n\n";
 $message .= "Email utilisateur : " . $user_email . "\n";
 $message .= "Date : " . date('Y-m-d H:i:s') . "\n";
 
 $headers = 'From: no-reply@octyvibe.be' . "\r\n" .
     'Reply-To: ' . $user_email . "\r\n" .
+    'Content-Type: text/plain; charset=UTF-8' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 $mail_sent = mail($recipient_email, $subject, $message, $headers);

@@ -123,7 +123,13 @@ body {
     .debug-border,
     .resize-handle,
     .github-corner,
-    button {
+    button,
+    .fixed.bottom-8,
+    /* Floating Toolbar Container */
+    [data-tooltip-target]
+
+    /* Tooltips triggers if needed, but mainly the floating bar */
+        {
         display: none !important;
     }
 
@@ -260,5 +266,12 @@ body {
 
     .space-y-4>*+* {
         margin-top: 2mm !important;
+    }
+
+    /* Force Background Colors for Skills */
+    .bg-brand-purple,
+    .bg-white\/20 {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
