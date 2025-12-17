@@ -270,8 +270,72 @@ body {
 
     /* Force Background Colors for Skills */
     .bg-brand-purple,
-    .bg-white\/20 {
+    .bg-white\/20,
+    .bg-gray-700 {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+    }
+}
+
+/* Mobile/Tablet Adjustments (< 1024px) */
+@media screen and (max-width: 1024px) {
+
+    /* Hide specific toolbar items */
+    #toolbar-move,
+    #toolbar-hand,
+    #toolbar-share,
+    #toolbar-sound,
+    #restart-btn,
+    .fixed.bottom-8>div:nth-child(2),
+    /* Text separator */
+    .fixed.bottom-8>div:first-child,
+    /* Left group container used to hold move/hand */
+    .fixed.bottom-8>div:last-child {
+        /* Right group container used to hold share/pdf/sound */
+        /* note: we can't hide the containers if PDF is inside one of them. 
+           Let's inspect structure again. 
+           Structure: Container > [Left Group] [Text] [Right Group].
+           Right Group > Share, PDF, Sound, Restart.
+           We want to Keep PDF. So we can't hide Right Group.
+           We CAN hide Left Group.
+        */
+    }
+
+    /* Hide Left Group (Move/Hand) */
+    .fixed.bottom-8>div:first-child {
+        display: none !important;
+    }
+
+    /* Hide Center Text */
+    .fixed.bottom-8>div:nth-child(2) {
+        display: none !important;
+    }
+
+    /* Hide Right Group Items EXCEPT PDF */
+    #toolbar-share,
+    #toolbar-sound,
+    #restart-btn {
+        display: none !important;
+    }
+
+    /* Adjust Toolbar Container to fit just the PDF button */
+    .fixed.bottom-8 {
+        padding: 0.5rem !important;
+        /* Smaller padding */
+        gap: 0 !important;
+        /* Center strictly */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Adjust Right Group to remove border and padding */
+    .fixed.bottom-8>div:last-child {
+        border: none !important;
+        padding-left: 0 !important;
+    }
+
+    /* Ensure PDF button is visible and styled */
+    #toolbar-pdf {
+        display: flex !important;
     }
 }

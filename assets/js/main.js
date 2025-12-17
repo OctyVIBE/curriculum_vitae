@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: 'sine.inOut'
         });
 
-        // Sidebar Drag & Drop Sorting (Sortable.js)
+        // Sidebar Drag & Drop Sorting (Sortable.js) - DESKTOP ONLY
         const sidebarSectionsContainer = document.getElementById('sidebar-sections');
-        if (sidebarSectionsContainer) {
+        if (sidebarSectionsContainer && window.innerWidth > 1024) {
             Sortable.create(sidebarSectionsContainer, {
                 animation: 150,
                 handle: '.sidebar-section', // Make the whole section the handle
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Main Sections Reordering
             const mainSections = document.getElementById('main-sections');
-            if (mainSections) {
+            if (mainSections && window.innerWidth > 1024) {
                 Sortable.create(mainSections, {
                     ...commonSortableOptions,
                     forceFallback: true, // Force JS fallback
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Experience Items Reordering
             const experienceList = document.getElementById('experience-list');
             console.log('Experience List found: ' + (!!experienceList));
-            if (experienceList) {
+            if (experienceList && window.innerWidth > 1024) {
                 try {
                     window.expSortable = Sortable.create(experienceList, {
                         ...commonSortableOptions,
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Tools Grid Reordering
             const toolsGrid = document.getElementById('tools-grid');
-            if (toolsGrid) {
+            if (toolsGrid && window.innerWidth > 1024) {
                 Sortable.create(toolsGrid, {
                     ...commonSortableOptions,
                     onStart: () => console.log('Drag started on Tools'),
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Portfolio Grid Reordering
             const portfolioGrid = document.getElementById('portfolio-grid');
-            if (portfolioGrid) {
+            if (portfolioGrid && window.innerWidth > 1024) {
                 Sortable.create(portfolioGrid, {
                     ...commonSortableOptions,
                     onStart: () => console.log('Drag started on Portfolio'),
@@ -243,32 +243,34 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create a proxy element for Draggable
         const proxy = document.createElement("div");
 
-        pageDraggable = Draggable.create(proxy, {
-            trigger: dragOverlay, // Trigger on the overlay
-            type: "x,y", // Track x and y movement
-            inertia: true,
-            onPress: function () {
-                this.startX = this.x;
-                this.startY = this.y;
-                this.scrollStartX = window.scrollX;
-                this.scrollStartY = window.scrollY;
-                dragOverlay.style.cursor = 'grabbing';
-                body.style.cursor = 'grabbing';
-            },
-            onDrag: function () {
-                const diffX = this.x - this.startX;
-                const diffY = this.y - this.startY;
-                window.scrollTo(this.scrollStartX - diffX, this.scrollStartY - diffY);
-            },
-            onRelease: function () {
-                dragOverlay.style.cursor = 'grab';
-                body.style.cursor = 'grab';
-            }
-        })[0];
+        if (window.innerWidth > 1024) {
+            pageDraggable = Draggable.create(proxy, {
+                trigger: dragOverlay, // Trigger on the overlay
+                type: "x,y", // Track x and y movement
+                inertia: true,
+                onPress: function () {
+                    this.startX = this.x;
+                    this.startY = this.y;
+                    this.scrollStartX = window.scrollX;
+                    this.scrollStartY = window.scrollY;
+                    dragOverlay.style.cursor = 'grabbing';
+                    body.style.cursor = 'grabbing';
+                },
+                onDrag: function () {
+                    const diffX = this.x - this.startX;
+                    const diffY = this.y - this.startY;
+                    window.scrollTo(this.scrollStartX - diffX, this.scrollStartY - diffY);
+                },
+                onRelease: function () {
+                    dragOverlay.style.cursor = 'grab';
+                    body.style.cursor = 'grab';
+                }
+            })[0];
 
-        pageDraggable.disable();
+            pageDraggable.disable();
+        }
 
-        if (handToolBtn && moveToolBtn) {
+        if (handToolBtn && moveToolBtn && pageDraggable) {
             handToolBtn.addEventListener('click', () => {
                 body.style.cursor = 'grab';
                 body.style.userSelect = 'none'; // Prevent text selection
